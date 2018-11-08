@@ -12,8 +12,12 @@ export default grapesjs.plugins.add('grapesjs-blocks-bootstrap4', (editor, opts 
   const opts_blocks = opts.blocks || {};
   const opts_labels = opts.labels || {};
   const opts_categories = opts.blockCategories || {};
+  const optsText = opts.text || {};
+  const optsSizes = opts.sizes || {};
   delete opts['blocks'];
   delete opts['labels'];
+  delete opts['text'];
+  delete opts['sizes'];
   delete opts['blockCategories'];
 
   const default_blocks = {
@@ -79,6 +83,9 @@ export default grapesjs.plugins.add('grapesjs-blocks-bootstrap4', (editor, opts 
     paragraph: 'Paragraph',
     // BASIC
     image: 'Image',
+    imageOverlay: 'Image overlay',
+    imageBottom: 'Image bottom',
+    imageTop: 'Image top',
     link: 'Link',
     list: 'Simple List',
     // FORMS
@@ -112,6 +119,37 @@ export default grapesjs.plugins.add('grapesjs-blocks-bootstrap4', (editor, opts 
     type_submit: 'Submit',
     type_reset: 'Reset',
     type_button: 'Button',
+    textColor: 'Text color',
+    backgroundColor: 'Background color',
+    borderWidth: 'Border width',
+    borderColor: 'Border color',
+    borderRadius: 'Border radius',
+    target: 'Target',
+    toggles: 'Toggles',
+    alternateText: 'Alternate text',
+    sourceURL: 'Source (URL)',
+    width: 'Width',
+    gutters: 'Gutters',
+    xsWidth: 'MD Width',
+    xsOffset: 'MD Offset',
+    smWidth: 'MD Width',
+    smOffset: 'MD Offset',
+    mdWidth: 'MD Width',
+    mdOffset: 'MD Offset',
+    lgWidth: 'MD Width',
+    lgOffset: 'MD Offset',
+    xlWidth: 'MD Width',
+    xlOffset: 'MD Offset',
+    context: 'Context',
+    shape: 'Shape',
+    body: 'Body',
+    footer: 'Footer',
+    layout: 'Layout',
+    size: 'Size',
+    displayHeading: 'Display heading',
+    lead: 'Lead',
+    ariaLabel: 'Aria label',
+    initialState: 'Initial state'
   };
 
   const default_categories = {
@@ -122,10 +160,79 @@ export default grapesjs.plugins.add('grapesjs-blocks-bootstrap4', (editor, opts 
     'forms': true,
   };
 
+  const defaultText = {
+      layout: 'Layout',
+      components: 'Components',
+      typography: 'Typography',
+      basic: 'Basic',
+      forms: 'Forms',
+      dropdown: 'Dropdown',
+      closed: 'Closed',
+      open: 'Open',
+      clickToToggle: 'Click to toggle',
+      dropdownMenu: 'Dropdown menu',
+      dropdownHeader: 'Dropdown header',
+      dropdownItem: 'Dropdown item',
+      default: 'Default',
+      none: 'None',
+      text: 'Text',
+      link: 'Text',
+      container: 'Text',
+      fixed: 'Text',
+      fluid: 'Text',
+      row: 'Text',
+      yes: 'Text',
+      no: 'Text',
+      column: 'Text',
+      equal: 'Text',
+      variable: 'Text',
+      columnBreak: 'Column break',
+      mediaObject: 'Text',
+      mediaBody: 'Text',
+      alert: 'Text',
+      badge: 'Text',
+      card: 'Text',
+      cardImageTop: 'Text',
+      cardHeader: 'Text',
+      cardImage: 'Text',
+      cardImageOverlay: 'Text',
+      cardBody: 'Text',
+      cardFooter: 'Text',
+      cardImageBottom: 'Text',
+      cardContainer: 'Text',
+      header: 'Text',
+      oneLargest: 'Text',
+      two: 'Text',
+      three: 'Text',
+      four: 'Text',
+      five: 'Text',
+      sixSmallest: 'Text',
+      fourSmallest: 'Text',
+      paragraph: 'Text',
+      button: 'Text',
+      inline: 'Text',
+      block: 'Text',
+      buttonGroup: 'Text',
+      dafault: 'Text',
+      horizontal: 'Text',
+      vertical: 'Text',
+      buttonToolbar: 'Text',
+  };
+
+  const defaultSizes = {
+      extraSmall: 'Extra Small',
+      small: 'Small',
+      medium: 'Medium',
+      large: 'Large',
+      extraLarge: 'Extra Large'
+  };
+
   let options = { ...{
     blocks: Object.assign(default_blocks, opts_blocks),
     labels: Object.assign(default_labels, opts_labels),
     blockCategories: Object.assign(default_categories, opts_categories),
+    text: Object.assign(defaultText, optsText),
+    sizes: Object.assign(defaultSizes, optsSizes),
     gridDevices: true,
     gridDevicesPanel: false,
   },  ...opts };
@@ -183,7 +290,4 @@ export default grapesjs.plugins.add('grapesjs-blocks-bootstrap4', (editor, opts 
   loadComponents(editor, options);
   loadBlocks(editor, options);
   loadDevices(editor, options);
-
-  // TODO Remove
-  //editor.on('load', () => editor.addComponents(`<div style="margin:0 100px; padding:25px;">Content loaded from the plugin</div>`))
 });

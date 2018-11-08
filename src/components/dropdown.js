@@ -3,9 +3,6 @@ known issues:
 - BS dropdown JS isn't attached if you remove the existing toggle and add a new one
 */
 
-import _ from 'underscore';
-import _s from 'underscore.string';
-
 export default (editor, config = {}) => {
   const comps = editor.DomComponents;
   const defaultType = comps.getType('default');
@@ -15,17 +12,17 @@ export default (editor, config = {}) => {
   comps.addType('dropdown', {
     model: defaultModel.extend({
       defaults: Object.assign({}, defaultModel.prototype.defaults, {
-        'custom-name': 'Dropdown',
+        'custom-name': config.text.dropdown,
         classes: ['dropdown'],
         droppable: 'a, button, .dropdown-menu',
         traits: [
           {
             type: 'class_select',
             options: [
-              {value: '', name: 'Closed'},
-              {value: 'show', name: 'Open'}
+                {value: '', name: config.text.closed},
+                {value: 'show', name: config.text.open}
             ],
-            label: 'Initial state'
+            label: config.labels.initialState
           }
         ].concat(defaultModel.prototype.defaults.traits)
       }),
@@ -33,13 +30,13 @@ export default (editor, config = {}) => {
         window.asdf = this;
         const toggle = {
           type: 'button',
-          content: 'Click to toggle',
+          content: config.text.clickToToggle,
           classes: ['btn', 'dropdown-toggle']
-        }
+        };
         const toggle_comp = this.append(toggle)[0];
         const menu = {
           type: 'dropdown_menu'
-        }
+        };
         const menu_comp = this.append(menu)[0];
         this.setupToggle(null, null, {force: true});
         const comps = this.components();
@@ -119,7 +116,7 @@ export default (editor, config = {}) => {
   comps.addType('dropdown_menu', {
     model: defaultModel.extend({
       defaults: Object.assign({}, defaultModel.prototype.defaults, {
-        'custom-name': 'Dropdown Menu',
+        'custom-name': config.text.dropdownMenu,
         classes: ['dropdown-menu'],
         draggable: '.dropdown',
         droppable: true
@@ -129,17 +126,17 @@ export default (editor, config = {}) => {
           type: 'header',
           tagName: 'h6',
           classes: ['dropdown-header'],
-          content: 'Dropdown header'
-        }
+          content: config.text.dropdownHeader
+        };
         const link = {
           type: 'link',
           classes: ['dropdown-item'],
-          content: 'Dropdown item'
-        }
+          content: config.text.dropdownItem
+        };
         const divider = {
           type: 'default',
           classes: ['dropdown-divider']
-        }
+        };
         this.append(header);
         this.append(link);
         this.append(divider);

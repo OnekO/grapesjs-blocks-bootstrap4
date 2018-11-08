@@ -2,9 +2,6 @@
 known issues:
 */
 
-import _ from 'underscore';
-import _s from 'underscore.string';
-
 export default (editor, config = {}) => {
   const comps = editor.DomComponents;
   const defaultType = comps.getType('default');
@@ -14,17 +11,17 @@ export default (editor, config = {}) => {
   comps.addType('collapse', {
     model: defaultModel.extend({
       defaults: Object.assign({}, defaultModel.prototype.defaults, {
-        'custom-name': 'Dropdown',
+        'custom-name': config.text.dropdown,
         classes: ['collapse'],
         droppable: true,
         traits: [
           {
             type: 'class_select',
             options: [
-              {value: '', name: 'Closed'},
-              {value: 'show', name: 'Open'}
+              {value: '', name: config.text.closed},
+              {value: 'show', name: config.text.open}
             ],
-            label: 'Initial state'
+            label: config.labels.initialState
           }
         ].concat(defaultModel.prototype.defaults.traits)
       }),

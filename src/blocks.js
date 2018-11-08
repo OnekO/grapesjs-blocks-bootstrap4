@@ -11,7 +11,7 @@ export default (editor, config = {}) => {
     if (blocks.container) {
       bm.add('container').set({
         label: c.labels.container,
-        category: 'Layout',
+        category: config.text.layout,
         attributes: {class:'fa fa-columns'},
         content: {
           type: 'container',
@@ -23,7 +23,7 @@ export default (editor, config = {}) => {
     if (blocks.row) {
       bm.add('row').set({
         label: c.labels.row,
-        category: 'Layout',
+        category: config.text.layout,
         attributes: {class:'fa fa-columns'},
         content: {
           type: 'row',
@@ -35,7 +35,7 @@ export default (editor, config = {}) => {
     if (blocks.column) {
       bm.add('column').set({
         label: c.labels.column,
-        category: 'Layout',
+        category: config.text.layout,
         attributes: {class:'fa fa-columns'},
         content: {
           type: 'column',
@@ -47,7 +47,7 @@ export default (editor, config = {}) => {
     if (blocks.column_break) {
       bm.add('column_break').set({
         label: c.labels.column_break,
-        category: 'Layout',
+        category: config.text.layout,
         attributes: {class:'fa fa-columns'},
         content: {
           type: 'column_break'
@@ -58,7 +58,7 @@ export default (editor, config = {}) => {
     if (blocks.media_object) {
       bm.add('media_object').set({
         label: c.labels.media_object,
-        category: 'Layout',
+        category: config.text.layout,
         attributes: {class:'fa fa-columns'},
         content: `<div class="media">
                  <img class="mr-3" src="">
@@ -79,7 +79,7 @@ export default (editor, config = {}) => {
     if (blocks.alert) {
       bm.add('alert', {
         label: c.labels.alert,
-        category: 'Components',
+        category: config.text.components,
         attributes: {class:'fa fa-exclamation-triangle'},
         content: {
           type: 'alert',
@@ -91,7 +91,7 @@ export default (editor, config = {}) => {
     if (blocks.badge) {
       bm.add('badge', {
         label: c.labels.badge,
-        category: 'Components',
+        category: config.text.components,
         attributes: {class:'fa fa-certificate'},
         content: {
           type: 'badge',
@@ -103,7 +103,7 @@ export default (editor, config = {}) => {
     if (blocks.card) {
       bm.add('card', {
         label: c.labels.card,
-        category: 'Components',
+        category: config.text.components,
         attributes: {class:'fa fa-credit-card'},
         content: {
           type: 'card'
@@ -111,7 +111,7 @@ export default (editor, config = {}) => {
       });
       bm.add('card_container', {
         label: c.labels.card_container,
-        category: 'Components',
+        category: config.text.components,
         attributes: {class:'fa fa-credit-card'},
         content: {
           type: 'card_container'
@@ -122,7 +122,7 @@ export default (editor, config = {}) => {
     if (blocks.collapse) {
       bm.add('collapse', {
         label: c.labels.collapse,
-        category: 'Components',
+        category: config.text.components,
         attributes: {class:'fa fa-compress'},
         content: {
           type: 'collapse'
@@ -133,7 +133,7 @@ export default (editor, config = {}) => {
     if (blocks.dropdown) {
       bm.add('dropdown', {
         label: c.labels.dropdown,
-        category: 'Components',
+        category: config.text.components,
         attributes: {class:'fa fa-caret-down'},
         content: {
           type: 'dropdown'
@@ -166,7 +166,7 @@ export default (editor, config = {}) => {
     if (blocks.text) {
       bm.add('text', {
         label: c.labels.text,
-        category: 'Typography',
+        category: config.text.typography,
         attributes: {class:'fa fa-font'},
         content: {
           type:'text',
@@ -178,7 +178,7 @@ export default (editor, config = {}) => {
     if (blocks.header) {
       bm.add('header', {
         label: c.labels.header,
-        category: 'Typography',
+        category: config.text.typography,
         attributes: {class:'fa fa-header'},
         content: {
           type: 'header',
@@ -190,7 +190,7 @@ export default (editor, config = {}) => {
     if (blocks.paragraph) {
       bm.add('paragraph', {
         label: c.labels.paragraph,
-        category: 'Typography',
+        category: config.text.typography,
         attributes: {class:'fa fa-paragraph'},
         content: {
           type: 'paragraph',
@@ -208,7 +208,7 @@ export default (editor, config = {}) => {
     if (blocks.link) {
       bm.add('link', {
         label: c.labels.link,
-        category: 'Basic',
+        category: config.text.basic,
         attributes: {class:'fa fa-link'},
         content: {
           type: 'link',
@@ -222,7 +222,7 @@ export default (editor, config = {}) => {
       //let default_src = 'data:image/png;base64,iVB\ORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEU\AAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8\yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAEl\FTkSuQmCC'
       bm.add('image', {
         label: c.labels.image,
-        category: 'Basic',
+        category: config.text.basic,
         attributes: {class:'fa fa-picture-o'},
         content: {
           type: 'image'
@@ -254,7 +254,7 @@ export default (editor, config = {}) => {
         <rect class="gjs-block-svg-path" x="2" y="15" width="10" height="3" rx="0.5"></rect>
       </svg>
       <div class="gjs-block-label">${c.labels.form}</div>`,
-      category: 'Forms',
+      category: config.text.forms,
       content: `
         <form>
           <div class="form-group">
@@ -293,7 +293,7 @@ export default (editor, config = {}) => {
         <polygon class="gjs-block-svg-path" points="4 10 5 10 5 14 4 14"></polygon>
       </svg>
       <div class="gjs-block-label">${c.labels.input}</div>`,
-      category: 'Forms',
+      category: config.text.forms,
       content: '<input class="form-control"/>',
     });
   }
@@ -306,7 +306,7 @@ export default (editor, config = {}) => {
         <polygon class="gjs-block-svg-path" points="4 10 5 10 5 14 4 14"></polygon>
       </svg>
       <div class="gjs-block-label">${c.labels.form_group_input}</div>`,
-      category: 'Forms',
+      category: config.text.forms,
       content: `
       <div class="form-group">
         <label>Name</label>
@@ -324,7 +324,7 @@ export default (editor, config = {}) => {
         <polygon class="gjs-block-svg-path" points="4 10 5 10 5 14 4 14"></polygon>
       </svg>
       <div class="gjs-block-label">${c.labels.input_group}</div>`,
-      category: 'Forms',
+      category: config.text.forms,
       content: `
       <div class="input-group">
         <div class="input-group-prepend">
@@ -350,7 +350,7 @@ export default (editor, config = {}) => {
         <polygon class="gjs-block-svg-path" points="20 15 21 15 21 16 20 16"></polygon>
       </svg>
       <div class="gjs-block-label">${c.labels.textarea}</div>`,
-      category: 'Forms',
+      category: config.text.forms,
       content: '<textarea class="form-control"></textarea>',
     });
   }
@@ -364,7 +364,7 @@ export default (editor, config = {}) => {
         <rect class="gjs-block-svg-path" x="4" y="11.5" width="11" height="1"></rect>
       </svg>
       <div class="gjs-block-label">${c.labels.select}</div>`,
-      category: 'Forms',
+      category: config.text.forms,
       content: `<select class="form-control">
         ${c.labels.select_option ? `<option value="">${c.labels.select_option}</option>` : ''}
         <option value="1">${c.labels.option} 1</option>
@@ -380,7 +380,7 @@ export default (editor, config = {}) => {
         <rect class="gjs-block-svg-path" x="4" y="11.5" width="16" height="1"></rect>
       </svg>
       <div class="gjs-block-label">${c.labels.button}</div>`,
-      category: 'Forms',
+      category: config.text.forms,
       content: '<button class="btn btn-primary">Send</button>',
     });
   }
@@ -388,7 +388,7 @@ export default (editor, config = {}) => {
   if (blocks.button_group) {
     bm.add('button_group', {
       label: c.labels.button_group,
-      category: 'Forms',
+      category: config.text.forms,
       attributes: {class:'fa fa-link'},
       content: {
         type: 'button_group'
@@ -399,7 +399,7 @@ export default (editor, config = {}) => {
   if (blocks.button_toolbar) {
     bm.add('button_toolbar', {
       label: c.labels.button_toolbar,
-      category: 'Forms',
+      category: config.text.forms,
       attributes: {class:'fa fa-link'},
       content: {
         type: 'button_toolbar'
@@ -416,7 +416,7 @@ export default (editor, config = {}) => {
         <polygon class="gjs-block-svg-path" fill-rule="nonzero" points="4 13 5 13 5 16 4 16"></polygon>
       </svg>
       <div class="gjs-block-label">${c.labels.label}</div>`,
-      category: 'Forms',
+      category: config.text.forms,
       content: '<label>Label</label>',
     });
   }
@@ -425,7 +425,7 @@ export default (editor, config = {}) => {
     bm.add('checkbox', {
       label: c.labels.checkbox,
       attributes: {class:'fa fa-check-square'},
-      category: 'Forms',
+      category: config.text.forms,
       content: `
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
@@ -441,7 +441,7 @@ export default (editor, config = {}) => {
     bm.add('radio', {
       label: c.labels.radio,
       attributes: {class:'fa fa-dot-circle-o'},
-      category: 'Forms',
+      category: config.text.forms,
       content: `
         <div class="form-check">
           <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
