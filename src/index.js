@@ -242,7 +242,7 @@ export default grapesjs.plugins.add('grapesjs-blocks-bootstrap4', (editor, opts 
     gridDevices: true,
     gridDevicesPanel: false,
   },  ...opts };
-
+console.log(options, defaultText, optsText);
  editor.addComponents(`
     <style>
 
